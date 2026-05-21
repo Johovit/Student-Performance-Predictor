@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container container-small">
+    <h1>Analysis Complete</h1>
+    <p class="subtitle">Based on the AI model assessment</p>
+
+    {% if prediction == 'Poor Performance' %}
+        <div class="result-icon result-poor">⚠️</div>
+        <h2 class="result-poor">{{ prediction }}</h2>
+    {% elif prediction == 'Average Performance' %}
+        <div class="result-icon result-average">📊</div>
+        <h2 class="result-average">{{ prediction }}</h2>
+    {% else %}
+        <div class="result-icon result-excellent">🏆</div>
+        <h2 class="result-excellent">{{ prediction }}</h2>
+    {% endif %}
+
+    <a href="/" class="btn-secondary">Analyze Another Student</a>
+</div>
+
+</body>
+</html>
